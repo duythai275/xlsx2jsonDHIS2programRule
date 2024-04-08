@@ -1,0 +1,212 @@
+{
+    "programRules": [
+        {
+            "id": "CUsk70f2QZr",
+            "name": "Assign \"No\" to Efficacy threshold control question if adjusted mortality > 80%",
+            "program": {
+                "id": "MN6JwPdaG3E"
+            },
+            "programRuleActions": [
+                {
+                    "id": "xRO3ar5ixUl"
+                }
+            ],
+            "condition": "(d2:hasValue('MOSQUITOES_CONE_1_CURR') &&nd2:hasValue('MOSQUITOES_CONE_1_CURR') &&nd2:hasValue('MOSQUITOES_CONE_1_CURR') &&nd2:hasValue('MOSQUITOES_CONE_1_CURR') &&nd2:hasValue('DEAD_MOSQUITOES_IN_CONE_1_24H_CURR') &&nd2:hasValue('DEAD_MOSQUITOES_IN_CONE_1_24H_CURR') &&nd2:hasValue('DEAD_MOSQUITOES_IN_CONE_1_24H_CURR') &&nd2:hasValue('DEAD_MOSQUITOES_IN_CONE_1_24H_CURR') &&nd2:hasValue('CONTROL_MOSQUITOES_CURR') &&nd2:hasValue('DEAD_CONTROL_MOSQUITOES_24H_CURR')) &&nnn((#{DEAD_CONTROL_MOSQUITOES_24H_CURR}*100/#{CONTROL_MOSQUITOES_CURR} < 5 &&n(100*(#{DEAD_MOSQUITOES_IN_CONE_1_24H_CURR} +#{DEAD_MOSQUITOES_IN_CONE_2_24H_CURR} +#{DEAD_MOSQUITOES_IN_CONE_3_24H_CURR} +#{DEAD_MOSQUITOES_IN_CONE_4_24H_CURR})/(#{MOSQUITOES_CONE_1_CURR} + #{MOSQUITOES_CONE_2_CURR} + #{MOSQUITOES_CONE_3_CURR} + #{MOSQUITOES_CONE_4_CURR}) > 80)) ||nn((#{DEAD_CONTROL_MOSQUITOES_24H_CURR}*100/#{CONTROL_MOSQUITOES_CURR} >= 5 && #{DEAD_CONTROL_MOSQUITOES_24H_CURR}*100/#{CONTROL_MOSQUITOES_CURR} < 20) &&n(100*((100*(#{DEAD_MOSQUITOES_IN_CONE_1_24H_CURR} +#{DEAD_MOSQUITOES_IN_CONE_2_24H_CURR} +#{DEAD_MOSQUITOES_IN_CONE_3_24H_CURR} +#{DEAD_MOSQUITOES_IN_CONE_4_24H_CURR})/(#{MOSQUITOES_CONE_1_CURR} + #{MOSQUITOES_CONE_2_CURR} + #{MOSQUITOES_CONE_3_CURR} + #{MOSQUITOES_CONE_4_CURR}))-(#{DEAD_CONTROL_MOSQUITOES_24H_CURR}*100/#{CONTROL_MOSQUITOES_CURR}))/(100-(#{DEAD_CONTROL_MOSQUITOES_24H_CURR}*100/#{CONTROL_MOSQUITOES_CURR})) > 80)))",
+            "translations": []
+        },
+        {
+            "id": "PIZrcy3p2qj",
+            "name": "Assign \"Yes\" to Efficacy threshold control question if adjusted mortality <= 80%",
+            "program": {
+                "id": "MN6JwPdaG3E"
+            },
+            "programRuleActions": [
+                {
+                    "id": "sspQWiBPLI8"
+                }
+            ],
+            "condition": "(d2:hasValue('MOSQUITOES_CONE_1_CURR') &&nd2:hasValue('MOSQUITOES_CONE_1_CURR') &&nd2:hasValue('MOSQUITOES_CONE_1_CURR') &&nd2:hasValue('MOSQUITOES_CONE_1_CURR') &&nd2:hasValue('DEAD_MOSQUITOES_IN_CONE_1_24H_CURR') &&nd2:hasValue('DEAD_MOSQUITOES_IN_CONE_1_24H_CURR') &&nd2:hasValue('DEAD_MOSQUITOES_IN_CONE_1_24H_CURR') &&nd2:hasValue('DEAD_MOSQUITOES_IN_CONE_1_24H_CURR') &&nd2:hasValue('CONTROL_MOSQUITOES_CURR') &&nd2:hasValue('DEAD_CONTROL_MOSQUITOES_24H_CURR')) &&nn((#{DEAD_CONTROL_MOSQUITOES_24H_CURR}*100/#{CONTROL_MOSQUITOES_CURR} < 5 &&n(100*(#{DEAD_MOSQUITOES_IN_CONE_1_24H_CURR} +#{DEAD_MOSQUITOES_IN_CONE_2_24H_CURR} +#{DEAD_MOSQUITOES_IN_CONE_3_24H_CURR} +#{DEAD_MOSQUITOES_IN_CONE_4_24H_CURR})/(#{MOSQUITOES_CONE_1_CURR} + #{MOSQUITOES_CONE_2_CURR} + #{MOSQUITOES_CONE_3_CURR} + #{MOSQUITOES_CONE_4_CURR}) <= 80)) ||nn((#{DEAD_CONTROL_MOSQUITOES_24H_CURR}*100/#{CONTROL_MOSQUITOES_CURR} >= 5 && #{DEAD_CONTROL_MOSQUITOES_24H_CURR}*100/#{CONTROL_MOSQUITOES_CURR} < 20) &&n(100*((100*(#{DEAD_MOSQUITOES_IN_CONE_1_24H_CURR} +#{DEAD_MOSQUITOES_IN_CONE_2_24H_CURR} +#{DEAD_MOSQUITOES_IN_CONE_3_24H_CURR} +#{DEAD_MOSQUITOES_IN_CONE_4_24H_CURR})/(#{MOSQUITOES_CONE_1_CURR} + #{MOSQUITOES_CONE_2_CURR} + #{MOSQUITOES_CONE_3_CURR} + #{MOSQUITOES_CONE_4_CURR}))-(#{DEAD_CONTROL_MOSQUITOES_24H_CURR}*100/#{CONTROL_MOSQUITOES_CURR}))/(100-(#{DEAD_CONTROL_MOSQUITOES_24H_CURR}*100/#{CONTROL_MOSQUITOES_CURR})) <= 80)))",
+            "translations": []
+        },
+        {
+            "id": "qznY7SIJwve",
+            "name": "Assign 30min exposure time",
+            "program": {
+                "id": "MN6JwPdaG3E"
+            },
+            "programRuleActions": [
+                {
+                    "id": "PfLMI28IDSX"
+                },
+                {
+                    "id": "NuGGIbQFy6f"
+                }
+            ],
+            "condition": "d2:hasValue('DATE_OF_SPRAY_CURR')",
+            "description": "Assign 30min exposure time to \"Duration of exposure to insecticide",
+            "translations": []
+        },
+        {
+            "id": "mdxnZou2Ucl",
+            "name": "Assign adjusted mortality 24h if control <5%",
+            "program": {
+                "id": "MN6JwPdaG3E"
+            },
+            "programRuleActions": [
+                {
+                    "id": "LtJJgUf4hRZ"
+                }
+            ],
+            "condition": "(d2:hasValue('MOSQUITOES_CONE_1_CURR') && d2:hasValue('MOSQUITOES_CONE_2_CURR') && d2:hasValue('MOSQUITOES_CONE_3_CURR') && d2:hasValue('MOSQUITOES_CONE_4_CURR') &&nd2:hasValue('DEAD_MOSQUITOES_IN_CONE_1_24H_CURR') && d2:hasValue('DEAD_MOSQUITOES_IN_CONE_2_24H_CURR') && d2:hasValue('DEAD_MOSQUITOES_IN_CONE_3_24H_CURR') && d2:hasValue('DEAD_MOSQUITOES_IN_CONE_4_24H_CURR') &&nd2:hasValue('CONTROL_MOSQUITOES_CURR') && d2:hasValue('DEAD_CONTROL_MOSQUITOES_24H_CURR')) &&nn((#{DEAD_CONTROL_MOSQUITOES_24H_CURR}*100/#{CONTROL_MOSQUITOES_CURR}) < 5)",
+            "description": "Calculates and assigns value to adjusted mortality 24h post exposure if control mortality is below 5%",
+            "translations": []
+        },
+        {
+            "id": "iWpqd58bllz",
+            "name": "Assign adjusted mortality 24h if control >= 5% and < 20%",
+            "program": {
+                "id": "MN6JwPdaG3E"
+            },
+            "programRuleActions": [
+                {
+                    "id": "equEf2MMTbe"
+                }
+            ],
+            "condition": "(d2:hasValue('MOSQUITOES_CONE_1_CURR') && d2:hasValue('MOSQUITOES_CONE_2_CURR') && d2:hasValue('MOSQUITOES_CONE_3_CURR') && d2:hasValue('MOSQUITOES_CONE_4_CURR') &&nd2:hasValue('DEAD_MOSQUITOES_IN_CONE_1_24H_CURR') && d2:hasValue('DEAD_MOSQUITOES_IN_CONE_2_24H_CURR') && d2:hasValue('DEAD_MOSQUITOES_IN_CONE_3_24H_CURR') && d2:hasValue('DEAD_MOSQUITOES_IN_CONE_4_24H_CURR') &&nd2:hasValue('CONTROL_MOSQUITOES_CURR') && d2:hasValue('DEAD_CONTROL_MOSQUITOES_24H_CURR')) &&n(((#{DEAD_CONTROL_MOSQUITOES_24H_CURR}*100/#{CONTROL_MOSQUITOES_CURR}) >= 5) && ((#{DEAD_CONTROL_MOSQUITOES_24H_CURR}*100/#{CONTROL_MOSQUITOES_CURR}) < 20))",
+            "description": "Calculates and assigns value to adjusted mortality 24h post exposure if control mortality is equal or above 5% and below 20%",
+            "translations": []
+        }
+    ],
+    "programRuleActions": [
+        {
+            "id": "AVZQLYRt2BX",
+            "programRule": {
+                "id": "fhO3LBLwMXO"
+            },
+            "programRuleActionType": "ASSIGN",
+            "dataElement": {
+                "id": "r6fQAnpUpEv"
+            },
+            "translations": []
+        },
+        {
+            "id": "AqbxnodNRr9",
+            "programRule": {
+                "id": "ZJ6xQyfSNU9"
+            },
+            "programRuleActionType": "ASSIGN",
+            "dataElement": {
+                "id": "SSFaYPeBDqo"
+            },
+            "translations": []
+        },
+        {
+            "id": "BFGgmf7dq4l",
+            "programRule": {
+                "id": "iCxIZuN04e5"
+            },
+            "programRuleActionType": "SHOWERROR",
+            "dataElement": {
+                "id": "KYaUo49TTmu"
+            },
+            "content": "The number of dead mosquitoes 48h after exposure cannot be less than number of dead mosquitoes 24h after exposure. Please, review the data values.",
+            "translations": []
+        },
+        {
+            "id": "CghBKzuq8YD",
+            "programRule": {
+                "id": "yXrfdgyvFM8"
+            },
+            "programRuleActionType": "SHOWERROR",
+            "dataElement": {
+                "id": "hfoSxzCF4BU"
+            },
+            "content": "The number of dead mosquitoes cannot exceed initial number of control mosquitoes. Please, review the data values.",
+            "translations": []
+        },
+        {
+            "id": "DkYD27x0mcU",
+            "programRule": {
+                "id": "PE22Qe9iVuZ"
+            },
+            "programRuleActionType": "SHOWERROR",
+            "dataElement": {
+                "id": "hfoSxzCF4BU"
+            },
+            "content": "The number of dead mosquitoes 48h after exposure cannot be less than number of dead mosquitoes 24h after exposure. Please, review the data values.",
+            "translations": []
+        }
+    ],
+    "programRuleVariables": [
+        {
+            "id": "n4ZcLzQ9xrI",
+            "name": "24H_CURR",
+            "program": {
+                "id": "MN6JwPdaG3E"
+            },
+            "dataElement": {
+                "id": "v0USPnqfDrP"
+            },
+            "useCodeForOptionSet": false,
+            "programRuleVariableSourceType": "DATAELEMENT_CURRENT_EVENT",
+            "valueType": "TRUE_ONLY ",
+            "translations": []
+        },
+        {
+            "id": "UKhby2V5LLH",
+            "name": "48H_CURR",
+            "program": {
+                "id": "MN6JwPdaG3E"
+            },
+            "dataElement": {
+                "id": "zNrR7WAW7Nc"
+            },
+            "useCodeForOptionSet": false,
+            "programRuleVariableSourceType": "DATAELEMENT_CURRENT_EVENT",
+            "valueType": "TRUE_ONLY ",
+            "translations": []
+        },
+        {
+            "id": "kvO4jLPa2Ww",
+            "name": "72H_CURR",
+            "program": {
+                "id": "MN6JwPdaG3E"
+            },
+            "dataElement": {
+                "id": "dMF6tJ27it7"
+            },
+            "useCodeForOptionSet": false,
+            "programRuleVariableSourceType": "DATAELEMENT_CURRENT_EVENT",
+            "valueType": "TRUE_ONLY ",
+            "translations": []
+        },
+        {
+            "id": "fEwJ4WHdMEd",
+            "name": "ADJUSTED_MORTALITY_24H_CURR",
+            "program": {
+                "id": "MN6JwPdaG3E"
+            },
+            "dataElement": {
+                "id": "vHtoXZHTqP9"
+            },
+            "useCodeForOptionSet": false,
+            "programRuleVariableSourceType": "DATAELEMENT_CURRENT_EVENT",
+            "valueType": "NUMBER",
+            "translations": []
+        },
+        {
+            "id": "QJr1g9CkUid",
+            "name": "ADJUSTED_MORTALITY_48H_CURR",
+            "program": {
+                "id": "MN6JwPdaG3E"
+            },
+            "dataElement": {
+                "id": "mZ9HZ5POvNr"
+            },
+            "useCodeForOptionSet": false,
+            "programRuleVariableSourceType": "DATAELEMENT_CURRENT_EVENT",
+            "valueType": "NUMBER",
+            "translations": []
+        }
+    ]
+}
