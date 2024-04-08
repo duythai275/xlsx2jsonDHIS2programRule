@@ -25,7 +25,7 @@ The Excel file must have 3 sheets named "programRules", "programRuleActions", "p
 
 | id | programRule | programRuleActionType | dataElement | data | content | translations |
 | --- | --- | --- | --- | --- | --- | --- |
-| AVZQLYRt2BX | {"id":"fhO3LBLwMXO"} | ASSIGN | {"id":"r6fQAnpUpEv"} | --- |  | [] |
+| AVZQLYRt2BX | {"id":"fhO3LBLwMXO"} | ASSIGN | {"id":"r6fQAnpUpEv"} |  |  | [] |
 
 ### programRuleVariables
 
