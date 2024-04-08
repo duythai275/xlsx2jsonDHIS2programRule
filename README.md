@@ -19,13 +19,13 @@ The Excel file must have 3 sheets named "programRules", "programRuleActions", "p
 
 | id | name | program | programRuleActions | condition | description | translations |
 | --- | --- | --- | --- | --- | --- | --- |
-| CUsk70f2QZr | Assign \"No\" to Efficacy threshold control question if adjusted mortality > 80% | {"id":"MN6JwPdaG3E"} | [{"id":"xRO3ar5ixUl"}] | d2:hasValue('MOSQUITOES_CONE_1_CURR') |  |  |
+| CUsk70f2QZr | Assign "No" to "Question" | {"id":"MN6JwPdaG3E"} | [{"id":"xRO3ar5ixUl"}] | d2:hasValue('MOSQUITOES_CONE_1_CURR') |  |  |
 
 ### programRuleActions
 
 | id | programRule | programRuleActionType | dataElement | data | content | translations |
 | --- | --- | --- | --- | --- | --- | --- |
-| AVZQLYRt2BX | {"id":"fhO3LBLwMXO"} | ASSIGN | {"id":"r6fQAnpUpEv"} | --- | The number of dead mosquitoes 48h after exposure cannot be less than number of dead mosquitoes 24h after exposure. Please, review the data values. | [] |
+| AVZQLYRt2BX | {"id":"fhO3LBLwMXO"} | ASSIGN | {"id":"r6fQAnpUpEv"} | --- |  | [] |
 
 ### programRuleVariables
 
